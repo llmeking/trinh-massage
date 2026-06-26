@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="越貞按摩小鋪，臺中市大雅區預約制按摩服務。精油放鬆、酸痛舒緩、熱敷放鬆、肩頸與腿部按摩、頭部按摩。">
-  <meta property="og:title" content="越貞按摩小鋪">
-  <meta property="og:description" content="卸下疲憊，回歸純粹的放鬆。採預約制，歡迎來電預約。">
-  <meta property="og:image" content="logo.png">
+  <meta name="description" content="越貞按摩店，臺中市大雅區預約制按摩服務。刮痧、局部按摩、局部按摩加拔罐、身體前側與後側按摩加拔罐。">
+  <meta property="og:title" content="越貞按摩店">
+  <meta property="og:description" content="專業・舒適・用心呵護您的每一份放鬆。採預約制，歡迎來電預約。">
+  <meta property="og:image" content="images/logo.png">
   <meta property="og:type" content="website">
-  <title>越貞按摩小鋪</title>
+  <title>越貞按摩店</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
@@ -134,7 +134,7 @@
 
     .hero {
       position: relative;
-      min-height: calc(100svh - 64px);
+      min-height: min(680px, calc(88svh - 64px));
       overflow: hidden;
       display: grid;
       align-items: center;
@@ -344,12 +344,14 @@
       color: var(--muted);
     }
 
-    .service-grid {
+    .service-grid,
+    .price-list {
       display: grid;
       gap: 14px;
     }
 
-    .service-card {
+    .service-card,
+    .price-card {
       min-height: 178px;
       padding: 22px;
       border: 1px solid rgba(91, 123, 94, 0.18);
@@ -359,7 +361,8 @@
       transition: transform 180ms ease, border-color 180ms ease;
     }
 
-    .service-card:hover {
+    .service-card:hover,
+    .price-card:hover {
       transform: translateY(-4px);
       border-color: rgba(91, 123, 94, 0.34);
     }
@@ -391,6 +394,51 @@
       margin: 10px 0 0;
       color: var(--muted);
       font-size: 0.98rem;
+    }
+
+    .price-card {
+      min-height: auto;
+      border-color: rgba(196, 168, 130, 0.34);
+    }
+
+    .price-card__top {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .price-card h3 {
+      font-size: clamp(1.55rem, 7vw, 2.6rem);
+    }
+
+    .price-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      align-items: baseline;
+      margin: 8px 0 0;
+      color: #5a3d1f;
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(1.12rem, 5vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .price-meta span + span {
+      padding-left: 14px;
+      border-left: 1px solid rgba(90, 61, 31, 0.34);
+    }
+
+    .price-parts {
+      width: fit-content;
+      max-width: 100%;
+      margin: 14px 0 0;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: #4f4a42;
+      background: rgba(240, 228, 206, 0.8);
+      font-size: 0.96rem;
     }
 
     .price-note {
@@ -546,12 +594,14 @@
     }
 
     /* ── Service card enhanced hover ── */
-    .service-card {
+    .service-card,
+    .price-card {
       position: relative;
       overflow: hidden;
     }
 
-    .service-card::after {
+    .service-card::after,
+    .price-card::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -562,12 +612,14 @@
       pointer-events: none;
     }
 
-    .service-card:hover::after {
+    .service-card:hover::after,
+    .price-card:hover::after {
       opacity: 1;
     }
 
     /* ── Icon hover bounce ── */
-    .service-card:hover .icon {
+    .service-card:hover .icon,
+    .price-card:hover .icon {
       transform: scale(1.1);
       background: var(--green-soft);
     }
@@ -843,6 +895,10 @@
       .service-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .price-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (min-width: 768px) {
@@ -866,6 +922,10 @@
 
       .service-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .price-card:first-child {
+        grid-column: span 2;
       }
 
       .contact-grid {
@@ -901,12 +961,11 @@
   <header class="site-header">
     <nav class="nav" aria-label="主要導覽">
       <a class="brand" href="#top" aria-label="回到首頁">
-        <img src="logo.png" alt="">
-        <span>越貞按摩小鋪</span>
+        <img src="images/logo.png" alt="">
+        <span>越貞按摩店</span>
       </a>
       <div class="nav-links">
-        <a href="#services">服務項目</a>
-        <a href="#video">服務實況</a>
+        <a href="#services">服務與價格</a>
         <a href="#contact">營業資訊</a>
       </div>
       <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false"><span></span></button>
@@ -917,8 +976,7 @@
   </header>
 
   <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="行動版導覽">
-    <a href="#services">服務項目</a>
-    <a href="#video">服務實況</a>
+    <a href="#services">服務與價格</a>
     <a href="#contact">營業資訊</a>
   </div>
 
@@ -927,18 +985,18 @@
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
           <span class="eyebrow">臺中大雅預約制按摩</span>
-          <h1 id="hero-title">越貞按摩小鋪</h1>
-          <p>卸下疲憊，回歸純粹的放鬆。以溫柔穩定的節奏，陪你把身體慢慢放回舒服的位置。</p>
+          <h1 id="hero-title">越貞按摩店</h1>
+          <p>專業・舒適・用心呵護您的每一份放鬆。依身體狀態安排刮痧、按摩與拔罐，讓緊繃慢慢回到舒服的位置。</p>
           <div class="hero-actions">
             <a class="button button-primary" href="tel:0923705926">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8.05 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92z"/></svg>
               立即預約
             </a>
-            <a class="button button-secondary" href="#contact">查看營業資訊</a>
+            <a class="button button-secondary" href="#services">查看服務價格</a>
           </div>
         </div>
         <div class="hero-mark reveal" style="transition-delay: 120ms;">
-          <img src="logo.png" alt="越貞按摩小鋪 Logo">
+          <img src="images/logo.png" alt="越貞按摩店 Logo">
         </div>
       </div>
     </section>
@@ -955,7 +1013,7 @@
         </div>
         <div class="info-item">
           <strong>服務地點</strong>
-          <span>臺中市大雅區中清北街45號</span>
+          <span>428臺中市大雅區雅環路一段259巷27號</span>
         </div>
       </div>
     </div>
@@ -963,46 +1021,61 @@
     <section id="services" aria-labelledby="services-title">
       <div class="wrap">
         <div class="section-head reveal">
-          <h2 id="services-title">服務項目</h2>
-          <p>依當天狀態搭配合適服務，節奏放慢、力道溫和，讓緊繃慢慢鬆開。</p>
+          <h2 id="services-title">服務與價格</h2>
+          <p>服務時間與費用清楚列示，方便先確認需求，再來電或加入 LINE 預約。</p>
         </div>
-        <div class="service-grid">
-          <article class="service-card reveal">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.35 7-10a7 7 0 0 0-14 0c0 5.65 7 10 7 10z"/><path d="M12 11.5v.01"/></svg></div>
-            <h3>精油放鬆</h3>
-            <p>搭配精油滑順手感，放慢呼吸與身體緊繃感。</p>
+        <div class="price-list">
+          <article class="price-card reveal">
+            <div class="price-card__top">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18c4.2-1.2 7.7-3.5 10.5-7"/><path d="M8.5 15.4c2.8.4 5.3-.2 7.5-1.9"/><path d="M16 5c2 1 3.3 2.7 4 5"/><path d="M7 7l1 2"/><path d="M3 10l2 1"/><path d="M5 3l1.5 2.5"/></svg></div>
+              <div>
+                <h3>刮痧</h3>
+                <div class="price-meta"><span>10 分鐘</span><span>200 元</span></div>
+              </div>
+            </div>
           </article>
-          <article class="service-card reveal">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c2.7-6.7 6.3-9.8 10.7-9.2 3.5.5 5.3 3 5.3 6.2 0 4.4-3.6 8-8 8-2.1 0-4-.8-5.4-2.1"/><path d="M4 20v-6h6"/></svg></div>
-            <h3>酸痛舒緩</h3>
-            <p>針對日常累積的不適位置，給予穩定的舒緩照顧。</p>
+          <article class="price-card reveal">
+            <div class="price-card__top">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 14c2-3.5 4.6-5.3 7.8-5.3 2.4 0 4.2 1.4 4.2 3.7 0 3.1-2.8 5.6-6.4 5.6-2.3 0-4.1-.8-5.6-2.3"/><path d="M4 19c1.3-2.4 2.1-4.7 2.4-7"/></svg></div>
+              <div>
+                <h3>局部按摩</h3>
+                <div class="price-meta"><span>30 分鐘</span><span>350 元</span></div>
+              </div>
+            </div>
+            <p class="price-parts">適用部位：頭部、頸部、肩部、背部、手部</p>
           </article>
-          <article class="service-card reveal">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 14a4 4 0 0 1 8 0v5H8z"/><path d="M12 2v4"/><path d="M5 6l2 2"/><path d="M19 6l-2 2"/></svg></div>
-            <h3>熱敷放鬆</h3>
-            <p>用溫熱感輔助放鬆，讓身體更容易進入休息狀態。</p>
+          <article class="price-card reveal">
+            <div class="price-card__top">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 17c3.8-1.2 6.5-3.2 8-6"/><path d="M14 8h3a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3h-3z"/><path d="M7 7h2"/><path d="M6 10h2"/><path d="M5 13h2"/></svg></div>
+              <div>
+                <h3>局部按摩＋拔罐</h3>
+                <div class="price-meta"><span>45 分鐘</span><span>550 元</span></div>
+              </div>
+            </div>
+            <p class="price-parts">適用部位：頭部、頸部、肩部、背部、手部</p>
           </article>
-          <article class="service-card reveal">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 21c1.3-2.3 1.7-4.8 1.2-7.4L7 7a4 4 0 0 1 8 0v3"/><path d="M14 10l2.6 1.4a4 4 0 0 1 2.1 3.5V21"/></svg></div>
-            <h3>肩頸與腿部按摩</h3>
-            <p>照顧久坐、久站後常見的肩頸與腿部緊繃。</p>
+          <article class="price-card reveal">
+            <div class="price-card__top">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c-2.4 2.6-3.4 5.6-3 9l.9 8"/><path d="M12 3c2.4 2.6 3.4 5.6 3 9l-.9 8"/><path d="M8 8c-2.2 1.5-3.4 3.5-3.6 6"/><path d="M16 8c2.2 1.5 3.4 3.5 3.6 6"/></svg></div>
+              <div>
+                <h3>身體前側按摩＋拔罐</h3>
+                <div class="price-meta"><span>60 分鐘</span><span>700 元</span></div>
+              </div>
+            </div>
+            <p class="price-parts">適用部位：頭部、臉部、頸部、胸部、手部、腿部</p>
           </article>
-          <article class="service-card reveal">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3a5 5 0 0 0 5 5h1v3h5v-5h2a3 3 0 0 0 3-3v-3a7 7 0 0 0-7-7z"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg></div>
-            <h3>頭部按摩</h3>
-            <p>溫和放鬆頭部與臉部周圍，適合需要安靜休息的時刻。</p>
+          <article class="price-card reveal">
+            <div class="price-card__top">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c2.6 2.5 3.9 5.6 3.9 9.2 0 2.2-.4 4.8-1.2 7.8"/><path d="M12 3c-2.6 2.5-3.9 5.6-3.9 9.2 0 2.2.4 4.8 1.2 7.8"/><path d="M12 8v8"/><path d="M7 8c-1.9 1.3-3 3.2-3.2 5.6"/><path d="M17 8c1.9 1.3 3 3.2 3.2 5.6"/></svg></div>
+              <div>
+                <h3>身體後側按摩＋拔罐</h3>
+                <div class="price-meta"><span>60 分鐘</span><span>700 元</span></div>
+              </div>
+            </div>
+            <p class="price-parts">適用部位：頭部、頸部、肩部、背部、臀部、手部、腿部</p>
           </article>
         </div>
-        <div class="price-note reveal">均一價 30 分鐘 / 350 元｜服務可自由搭配或加節</div>
-      </div>
-    </section>
-
-    <section id="video" class="video-band" aria-labelledby="video-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2 id="video-title">服務實況</h2>
-          <p>影片製作中，敬請期待。</p>
-        </div>
+        <div class="price-note reveal">預約前可先來電或加入 LINE，依身體狀態安排合適服務。</div>
       </div>
     </section>
 
@@ -1032,13 +1105,13 @@
               <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.35 7-11a7 7 0 0 0-14 0c0 6.65 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
               <div>
                 <strong>地址</strong>
-                <a href="https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%9B%85%E5%8D%80%E4%B8%AD%E6%B8%85%E5%8C%97%E8%A1%9745%E8%99%9F" target="_blank" rel="noopener">臺中市大雅區中清北街45號</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=428%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%9B%85%E5%8D%80%E9%9B%85%E7%92%B0%E8%B7%AF%E4%B8%80%E6%AE%B5259%E5%B7%B727%E8%99%9F" target="_blank" rel="noopener">428臺中市大雅區雅環路一段259巷27號</a>
               </div>
             </div>
           </div>
         </div>
         <aside class="qr-panel reveal" aria-label="LINE QR Code">
-          <img src="line-qrcode.jpg" alt="越貞按摩小鋪 LINE QR Code">
+          <img src="images/PERSONAL QR CODE.jpg" alt="越貞按摩店 LINE QR Code">
           <h3>LINE 聯繫</h3>
           <p>掃描 QR Code 或直接點擊加入</p>
           <a class="button button-primary" href="https://line.me/ti/g2/oyV_Xgt6rJ7Dp7RlCUEJsa0KuZkp4JoMWHHOMQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener">
@@ -1051,7 +1124,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">越貞按摩小鋪 © 2026</div>
+    <div class="wrap">越貞按摩店 © 2026</div>
   </footer>
 
   <script>
